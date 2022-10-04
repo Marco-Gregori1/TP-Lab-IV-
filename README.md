@@ -1,10 +1,13 @@
 # Project Title
 
-A brief description of what this project does and who it's for
+API sobre superheroes del universo marvel basada en la ya existente api que brinda el mismo marvel.
 
 
-## Acknowledgements
+## Depencencias
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - [axios](https://axios-http.com/docs/intro)
+ - [blueimp-md5](https://www.npmjs.com/package/blueimp-md5)
+ - [cors](https://www.npmjs.com/package/cors)
+ - [dotenv](https://www.npmjs.com/package/dotenv)
+ - [express](https://expressjs.com/es/guide/routing.html)
+ - [nodemon](https://www.npmjs.com/package/nodemon)
