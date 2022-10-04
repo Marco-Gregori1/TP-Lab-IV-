@@ -12,6 +12,7 @@ router.get('/test',getTest)
 // y
 // Listado de registros en formato json que pueda filtrarse a través de query params. 
 // name, comics, series
+router.get('/',getTest);
 
 router.get('/personajes',getHeroes);
 
