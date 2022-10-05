@@ -11,3 +11,15 @@ API sobre superheroes del universo marvel basada en la ya existente api que brin
  - [dotenv](https://www.npmjs.com/package/dotenv)
  - [express](https://expressjs.com/es/guide/routing.html)
  - [nodemon](https://www.npmjs.com/package/nodemon)
+
+
+
+## Documentacion Postman
+ - Privada 🔒
+ 
+ ## Installation
+ 
+```bash
+  npm install my-project
+  cd my-project
+```
