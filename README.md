@@ -1,4 +1,4 @@
-# Project Title
+# API Marvel
 
 API sobre superheroes del universo marvel basada en la ya existente api que brinda el mismo marvel.
 
@@ -11,3 +11,16 @@ API sobre superheroes del universo marvel basada en la ya existente api que brin
  - [dotenv](https://www.npmjs.com/package/dotenv)
  - [express](https://expressjs.com/es/guide/routing.html)
  - [nodemon](https://www.npmjs.com/package/nodemon)
+
+
+
+## Documentacion Postman
+ - Privada 🔒
+ 
+ ## Installation
+ 
+```bash
+  cd TP-Lab-IV
+  npm install 
+  
+```
