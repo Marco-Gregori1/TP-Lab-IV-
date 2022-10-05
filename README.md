@@ -1,4 +1,4 @@
-# Project Title
+# API Marvel
 
 API sobre superheroes del universo marvel basada en la ya existente api que brinda el mismo marvel.
 
@@ -20,6 +20,7 @@ API sobre superheroes del universo marvel basada en la ya existente api que brin
  ## Installation
  
 ```bash
-  npm install my-project
-  cd my-project
+  cd TP-Lab-IV
+  npm install 
+  
 ```
