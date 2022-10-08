@@ -1,11 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const router = require('../routes/entities');
 
 class Server {
         
     constructor(){
         this.app = express();
+        this.middleware();
         this.router();
         this.port = process.env.PORT;
         
@@ -17,10 +17,10 @@ class Server {
         this.app.use(express.static('public'))
     }
     router(){
-        this.app.use('/',require('../routes/entities'))
+        //utilizar una ruta (/v1/entities) para dejar abierto a futuros agregados de multipes rutas
+        this.app.use('/v1/entities',require('../routes/entities'))
         this.app.all('*', (req,res) => (
-            res.status(400),
-            res.send({ERROR : "Pagina no encontrada"})
+            res.status(400).json({ERROR : "Pagina no encontrada.........."})
         ))
         
     }
@@ -28,8 +28,7 @@ class Server {
     listen(){
         this.app.listen(this.port, () => {
             console.log(`Example app listening on port ${this.port}`)
-          })
-        
+        })
     }
 }
 
