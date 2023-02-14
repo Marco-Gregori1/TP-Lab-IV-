@@ -32,18 +32,15 @@ const getHeroes = (req = request ,res) => {
     let invalid = false;
     //Alternativa getHash
     const objHash = getHash();
-
      //identanción de llaves
     if (querysKeys.length != 0){
-        
         // Intento de validacion de parametros sin usar express-validator,
         // ignora querys vacias
-
 
         // Nota: Para buscar por serie y comics en necesario tener la id del personaje
 
         querysKeys.forEach(element => { 
-            if ((element === "name" || element === "comics" || element === "series" || element === "nameStartsWith")){
+            if ((element === 'limit' || element === 'offset' ||element === "name" || element === "comics" || element === "series" || element === "nameStartsWith")){
                 (querys[element].trim().length === 0) ? invalid = true : searchParams += (element +"="+querys[element] + "&")
             }else { 
                 //Ojo con este invalid que podría dar un falso positivo
@@ -58,7 +55,7 @@ const getHeroes = (req = request ,res) => {
         /*res.status(403),*/
         res.send({ERROR : 'Parametro vacio o invalido'})
     }    
-    axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=50&${searchParams}ts=${objHash.ts}&apikey=${PUBLIC_KEY}&hash=${objHash.md5}`)
+    axios.get(`https://gateway.marvel.com:443/v1/public/characters?${searchParams}ts=${objHash.ts}&apikey=${PUBLIC_KEY}&hash=${objHash.md5}`)
     .then(function (response) {
         //Utilizar la misma respuesta del endpoint de marvel y retornarla
         res.status(response.data.code).json(response.data);       
@@ -84,6 +81,24 @@ const getHeroes = (req = request ,res) => {
     
 }
 
+const getComicsByHeroId = (req = request ,res) => { 
+    const id = req.params.id;
+    const objHash = getHash();
+    axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?ts=${objHash.ts}&apikey=${PUBLIC_KEY}&hash=${objHash.md5}`)
+    .then(function (response) {
+        //estandarizar formato de salida para los json
+        res.status(200).json(response.data)
+    })
+    .catch(function (error) {
+        //estandarizar formato de salida para los json
+        if(error.code == 'ERR_BAD_REQUEST'){
+            res.status(404).json({404 : "No se encontro"})}
+        else{
+            res.status(500).json({OOPS : "Algo salio mal"})
+        }
+    })
+}
+
 const getHeroesById = (req = request ,res) => { 
     const id = req.params.id;
     const objHash = getHash();
@@ -106,5 +121,6 @@ const getHeroesById = (req = request ,res) => {
 module.exports = {
     getHeroes,
     getTest,
-    getHeroesById
+    getHeroesById,
+    getComicsByHeroId
 }

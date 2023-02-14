@@ -2,7 +2,7 @@
 const { Router } = require("express");
 
 
-const { getHeroes, getTest, getHeroesById } = require("../controllers/entitycontroller") 
+const { getHeroes, getTest, getHeroesById, getComicsByHeroId } = require("../controllers/entitycontroller") 
 
 const router = Router();
 
@@ -17,7 +17,10 @@ router.get('/',getTest);
 router.get('/personajes',getHeroes);
 
 // Visualización de un registro en particular ( id ) // Listo
-router.get('/personaje/:id',getHeroesById);
+router.get('/personajes/:id',getHeroesById);
+
+router.get('/personajes/:id/comics',getComicsByHeroId);
+
 
 // Aclaración: Devolver status code en cada request (200, 401, 404 ,etc.
 module.exports = router;

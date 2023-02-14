@@ -22,5 +22,6 @@ API sobre superheroes del universo marvel basada en la ya existente api que brin
 ```bash
   cd TP-Lab-IV
   npm install 
+  node app.js
   
 ```

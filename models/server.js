@@ -20,7 +20,7 @@ class Server {
         //utilizar una ruta (/v1/entities) para dejar abierto a futuros agregados de multipes rutas
         this.app.use('/v1/entities',require('../routes/entities'))
         this.app.all('*', (req,res) => (
-            res.status(400).json({ERROR : "Pagina no encontrada.........."})
+           res.status(400).json({ERROR : "Pagina no encontrada"})
         ))
         
     }
